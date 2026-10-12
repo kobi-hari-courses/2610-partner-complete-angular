@@ -5,7 +5,8 @@
   "type": "commonjs",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node ./bin/main.js", 
+    "build": "tsc --watch"
   },
   "devDependencies": {
     "typescript": "^7.0.2"
