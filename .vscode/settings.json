@@ -1,0 +1,16 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#003434",
+        "titleBar.activeBackground": "#004949",
+        "titleBar.activeForeground": "#E4FFFF",
+        "titleBar.inactiveBackground": "#003434",
+        "titleBar.inactiveForeground": "#E4FFFF",
+        "statusBar.background": "#003434",
+        "statusBar.foreground": "#E4FFFF",
+        "statusBar.debuggingBackground": "#003434",
+        "statusBar.debuggingForeground": "#E4FFFF",
+        "statusBar.noFolderBackground": "#003434",
+        "statusBar.noFolderForeground": "#E4FFFF"
+    },
+    "windowColors.baseColor": "teal"
+}
