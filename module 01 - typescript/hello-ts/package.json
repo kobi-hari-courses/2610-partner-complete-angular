@@ -1,0 +1,13 @@
+{
+  "name": "hello-ts",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
