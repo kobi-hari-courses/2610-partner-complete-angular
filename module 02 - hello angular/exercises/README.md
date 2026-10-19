@@ -141,7 +141,6 @@ Create an action such as `restart()` that:
 - Sets the phase back to `in-progress`.
 - Resets the guess count to `0`.
 - Resets the last guess and last result to `null`.
-- Clears the validation message.
 
 A newly generated number may happen to equal the previous one. That is still a valid random result.
 
