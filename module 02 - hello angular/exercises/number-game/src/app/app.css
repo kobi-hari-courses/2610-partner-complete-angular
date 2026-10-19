@@ -50,7 +50,6 @@
   height: 8px;
   border-radius: 50%;
   background: #f17d54;
-  box-shadow: 0 0 0 4px #fff0e9;
 }
 
 h1 {
@@ -101,10 +100,6 @@ h1 span {
   letter-spacing: 0.1em;
 }
 
-.attempt-count strong {
-  color: #7565d7;
-}
-
 .input-label {
   display: block;
   margin-bottom: 10px;
@@ -129,10 +124,6 @@ input {
   color: #242640;
   font: inherit;
   transition: border-color 160ms ease, box-shadow 160ms ease;
-}
-
-input::placeholder {
-  color: #a5a6b4;
 }
 
 input:focus {
@@ -241,23 +232,6 @@ input:focus {
 .result-panel {
   padding: 20px 0 8px;
   text-align: center;
-}
-
-.result-icon {
-  display: grid;
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 20px;
-  place-items: center;
-  border-radius: 18px;
-  background: #f1efff;
-  color: #7565d7;
-  font-size: 1.6rem;
-}
-
-.win-panel .result-icon {
-  background: #eaf8ef;
-  color: #39a76a;
 }
 
 .result-panel h2 {

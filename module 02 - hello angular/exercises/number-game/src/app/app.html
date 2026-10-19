@@ -50,7 +50,6 @@
         </section>
       } @else if (phase() === 'win') {
         <section class="result-panel win-panel">
-          <span class="result-icon" aria-hidden="true">✦</span>
           <p class="round-label">BRILLIANTLY DONE</p>
           <h2>You got it!</h2>
           <p class="result-copy">You found the number in <strong>{{guessCount()}} {{guessCount() === 1 ? 'guess' : 'guesses'}}</strong>.</p>
@@ -59,7 +58,6 @@
         </section>
       } @else if (phase() === 'loss') {
         <section class="result-panel loss-panel">
-          <span class="result-icon" aria-hidden="true">↗</span>
           <p class="round-label">BETTER LUCK NEXT TIME</p>
           <h2>So close!</h2>
           <p class="result-copy">You used all {{guessCount()}} guesses. The number was</p>
