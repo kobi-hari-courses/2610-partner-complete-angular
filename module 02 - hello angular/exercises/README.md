@@ -182,7 +182,6 @@ You can start with this outline:
 - Connect the button to the guess action.
 - Before the first guess, show a message such as "Make your first guess."
 - After a valid guess, show the last number and whether it was too low or too high.
-- Show a validation message when the input is invalid.
 
 You can pass the input value using a template reference variable without introducing forms bindings:
 
