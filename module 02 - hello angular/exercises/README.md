@@ -227,15 +227,10 @@ Design a small, responsive game card. Use plain CSS rather than a component libr
 
 Requirements:
 
-- Define custom properties for colors, spacing, or border radii and reuse them with `var(...)`.
-- Use Grid or Flexbox to lay out the page and controls.
-- Give the card a fluid width with a sensible maximum, for example `width: min(100%, 28rem)`.
-- Use relative units such as `rem` and a responsive heading size with `clamp(...)`.
-- Provide space around the card and ensure the controls fit narrow screens without horizontal scrolling.
-- Give buttons and inputs visible `:focus-visible` styles and buttons a hover state.
-- Make success, failure, and validation messages visually distinct. Include text, not just color.
 
-Put global rules such as `box-sizing: border-box`, the body font, and page background in `styles.css`. Put game-specific styles in `app.css`.
+- Use Flexbox to lay out the page and controls.
+- Provide space around the card and ensure the controls fit narrow screens without horizontal scrolling.
+- Make success, failure, and validation messages visually distinct. Include text, not just color.
 
 **Checkpoint:** Play a full game, restart it, and check the layout at both mobile and desktop widths.
 
@@ -288,8 +283,7 @@ For predictable checks, temporarily use a fixed secret number such as `42` durin
 - [ ] A correct seventh guess wins rather than loses.
 - [ ] Seven wrong guesses cause a loss and reveal the secret number.
 - [ ] After either ending, the input is absent and further guesses cannot change state.
-- [ ] Blank input, fractions, and numbers outside 1-100 show validation feedback and do not use a guess.
-- [ ] The next valid guess clears validation feedback.
+- [ ] Blank input, fractions, and numbers outside 1-100 are ignored.
 - [ ] The Restart button works after both a win and a loss, resets all game state, and generates a fresh random number.
 - [ ] The interface works on a narrow screen and has visible keyboard focus.
 - [ ] If you completed the challenge, history contains one entry per valid guess, includes the final guess, and resets on restart.
