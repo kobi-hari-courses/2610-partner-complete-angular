@@ -161,7 +161,7 @@ Remember to call signals in the template. For example, `{{ guessCount() }}` read
 
 ### 2. Show the correct UI for each phase
 
-Use **`@if`**, `@else if`, and `@else` to choose the interface based on the phase. Do not use `*ngIf` or hide everything with CSS.
+Use **`@if`** to choose the interface based on the phase. Do not use `*ngIf` or hide everything with CSS.
 
 You can start with this outline:
 
