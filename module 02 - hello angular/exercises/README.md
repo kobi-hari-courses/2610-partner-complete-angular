@@ -77,10 +77,9 @@ Use this table as your state checklist:
 | Guess count | `number` | Starts at `0`; counts valid guesses only. |
 | Last guess | `number \| null` | Starts as `null`, because no guess has been made yet. |
 | Last result | `'too-low' \| 'too-high' \| 'correct' \| null` | Starts as `null`; describes the last valid guess. |
-| Validation message | `string` | Starts empty; explains why an input cannot be accepted. |
 | Maximum guesses | `number` | A fixed value of `7`. |
 
-Use **signals** for changing state. The maximum number of guesses can be a `readonly` class property because it does not change.
+Use **signals** for changing state. 
 
 Import `signal` from `@angular/core`. For example:
 
@@ -91,11 +90,13 @@ readonly lastGuess = signal<number | null>(null);
 
 Here, `readonly` prevents replacing the signal itself; you can still change its value with `.set()` or `.update()`.
 
-To generate a random integer from 1 through 100, use:
+**Hint: Generate a random number between 1 and 100 (inclusive)**
 
 ```typescript
 Math.floor(Math.random() * 100) + 1
 ```
+
+`Math.random()` produces a number from `0` (inclusive) to `1` (exclusive). Multiplying by `100` and rounding down with `Math.floor()` gives an integer from `0` to `99`. Adding `1` shifts the range to `1` through `100`. Use this expression to initialize the secret number and generate a new one when restarting.
 
 Do not store values you can easily derive, such as guesses remaining. Calculate them from the maximum and the count. As an optional extension, use a `computed` signal for that value.
 
@@ -172,9 +173,9 @@ You can start with this outline:
 @if (phase() === 'in-progress') {
   <!-- Guess input, guess button, and feedback -->
 } @else if (phase() === 'win') {
-  <!-- Success message and play-again button -->
+  <!-- Success message and restart button -->
 } @else {
-  <!-- Game-over message, secret number, and play-again button -->
+  <!-- Game-over message, secret number, and restart button -->
 }
 ```
 
@@ -201,18 +202,32 @@ Use another `@if` to distinguish "no guess yet" from feedback about a previous g
 
 - Congratulate the player and show how many guesses they used.
 - Hide the guess controls.
-- Show a Play again button connected to the restart action.
+- Show a Restart button as described in the next step.
 
 **After a loss:**
 
 - Explain that all seven guesses have been used.
 - Reveal the secret number.
 - Hide the guess controls.
-- Show a Play again button connected to the restart action.
+- Show a Restart button as described in the next step.
 
 Keep dynamic feedback in an `aria-live="polite"` region so assistive technology can announce updates.
 
-### 3. Style it with modern CSS
+### 3. Add a Restart button
+
+After either a win or a loss, let the player start a new game without refreshing the page.
+
+1. Add a button to each of the two game-over branches in your `@if` structure.
+2. Bind its click event to the `restart()` action you created in Step 2:
+
+   ```html
+   <button type="button" (click)="restart()">Restart</button>
+   ```
+
+3. Confirm that clicking it generates a new secret number, resets the count and feedback, and returns the phase to `in-progress`.
+4. Check that the guess controls reappear and the game-over message disappears. Because the input is recreated by `@if`, it should be empty for the new game.
+
+### 4. Style it with modern CSS
 
 Design a small, responsive game card. Use plain CSS rather than a component library.
 
@@ -281,7 +296,7 @@ For predictable checks, temporarily use a fixed secret number such as `42` durin
 - [ ] After either ending, the input is absent and further guesses cannot change state.
 - [ ] Blank input, fractions, and numbers outside 1-100 show validation feedback and do not use a guess.
 - [ ] The next valid guess clears validation feedback.
-- [ ] Play again resets all game state and generates a fresh random number.
+- [ ] The Restart button works after both a win and a loss, resets all game state, and generates a fresh random number.
 - [ ] The interface works on a narrow screen and has visible keyboard focus.
 - [ ] If you completed the challenge, history contains one entry per valid guess, includes the final guess, and resets on restart.
 
