@@ -156,7 +156,6 @@ Add:
 
 - A heading and a short explanation of the rules.
 - The number of guesses used out of 7.
-- The number of guesses remaining.
 
 Remember to call signals in the template. For example, `{{ guessCount() }}` reads the current value of a signal named `guessCount`.
 
