@@ -1,0 +1,74 @@
+<main class="page-shell">
+  <section class="game-card" aria-labelledby="game-title">
+    <header class="game-header">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> A LITTLE NUMBER CHALLENGE</p>
+      <h1 id="game-title">Guess the <span>number</span></h1>
+      <p class="intro">I'm thinking of a number between 1 and 100. Can you find it?</p>
+    </header>
+
+    <div class="game-content" aria-live="polite">
+      @if (phase() === 'in-progress') {
+        <div class="round-summary">
+          <span class="round-label">YOUR TURN</span>
+          <span class="attempt-count">GUESS <strong>{{guessCount() + 1}}</strong> OF {{maxGuesses()}}</span>
+        </div>
+
+        <label class="input-label" for="next-guess">What’s your guess?</label>
+        <div class="guess-controls">
+          <input
+            #nextGuessNumber
+            id="next-guess"
+            type="number"
+            min="1"
+            max="100"
+            placeholder="Try a number..."
+            aria-describedby="guess-help"
+          >
+          <button class="primary-button" type="button" (click)="nextGuess(nextGuessNumber.value)">
+            Make a guess <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <p class="input-help" id="guess-help">Enter a whole number from 1 to 100.</p>
+
+        <section class="history" aria-labelledby="history-title">
+          <div class="history-heading">
+            <h2 id="history-title">Guess history</h2>
+            <span>{{history().length}} {{history().length === 1 ? 'guess' : 'guesses'}}</span>
+          </div>
+          @if (history().length > 0) {
+            <ol class="history-list">
+              @for (rec of history(); track $index) {
+                <li>
+                  <span class="history-index">{{ $index + 1 }}</span>
+                  <span>{{rec}}</span>
+                </li>
+              }
+            </ol>
+          } @else {
+            <p class="history-empty">Your guesses will show up here. Make your first one!</p>
+          }
+        </section>
+      } @else if (phase() === 'win') {
+        <section class="result-panel win-panel">
+          <span class="result-icon" aria-hidden="true">✦</span>
+          <p class="round-label">BRILLIANTLY DONE</p>
+          <h2>You got it!</h2>
+          <p class="result-copy">You found the number in <strong>{{guessCount()}} {{guessCount() === 1 ? 'guess' : 'guesses'}}</strong>.</p>
+          <p class="secret-number">{{secret()}}</p>
+          <button class="primary-button restart-button" type="button" (click)="reset()">Play again <span aria-hidden="true">→</span></button>
+        </section>
+      } @else if (phase() === 'loss') {
+        <section class="result-panel loss-panel">
+          <span class="result-icon" aria-hidden="true">↗</span>
+          <p class="round-label">BETTER LUCK NEXT TIME</p>
+          <h2>So close!</h2>
+          <p class="result-copy">You used all {{guessCount()}} guesses. The number was</p>
+          <p class="secret-number">{{secret()}}</p>
+          <button class="primary-button restart-button" type="button" (click)="reset()">Try again <span aria-hidden="true">→</span></button>
+        </section>
+      }
+    </div>
+
+    <footer class="game-footer">A game of patience, intuition & a little bit of luck.</footer>
+  </section>
+</main>
