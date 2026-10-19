@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +7,31 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('fun-with-angular');
+  // State (Data)
+  readonly keyword = signal('');
+  readonly results = signal<string[]>([]);
+  readonly isBusy = signal(false);
+
+  // Actions (Methods)
+  setKeyword(value: string) {
+    this.keyword.set(value);
+  }
+
+  search() {
+    console.log('Starting to search', this.keyword())
+    this.isBusy.set(true);
+    this.results.set([]);
+
+    setTimeout(() => {
+      this.isBusy.set(false);
+      this.results.set([
+        this.keyword().toUpperCase(), 
+        this.keyword().toLowerCase(), 
+        `** ${this.keyword()} **`
+      ])
+    }, 3000);
+
+  }
+
+
 }

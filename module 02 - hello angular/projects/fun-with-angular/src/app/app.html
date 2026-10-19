@@ -1,2 +1,21 @@
-<h1>Welcome to Angular</h1>
-<h2>title: {{title()}}</h2>
+<div class="tools">
+  <input #searchBox type="search" (input)="setKeyword(searchBox.value)" 
+    [disabled]="isBusy()"
+  />
+  <button (click)="search()"
+    [disabled]="isBusy()"
+  >Go</button>
+  @if (isBusy()) {
+    <img
+      src="https://discuss.wxpython.org/uploads/default/original/2X/6/6d0ec30d8b8f77ab999f765edd8866e8a97d59a3.gif"
+    />
+  }
+</div>
+
+<div class="results">
+  <ul>
+    @for(res of results(); track $index) {
+      <li>{{res}}</li>
+    }
+  </ul>
+</div>
