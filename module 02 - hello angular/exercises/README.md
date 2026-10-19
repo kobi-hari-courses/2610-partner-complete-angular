@@ -19,7 +19,7 @@ Use one standalone root component for this exercise. You do not need routing, se
 With Node.js and the Angular CLI installed, open a terminal in the directory where you keep your projects and run:
 
 ```powershell
-ng new guess-the-number --style=css --routing=false --ssr=false
+ng new guess-the-number
 cd guess-the-number
 ng serve
 ```
