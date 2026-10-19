@@ -113,11 +113,10 @@ Implement its behavior in this order:
 
 1. If the phase is not `in-progress`, do not accept another guess. This protects the state even if the action is called after the game ends.
 2. Validate the input:
-   - Reject an empty or whitespace-only value.
    - Convert the string to a number.
    - Accept only whole numbers from 1 through 100.
-   - For invalid input, show a useful validation message without changing the guess count, last guess, or last result.
-3. For a valid guess, clear any validation message.
+   - For invalid input, simply ignore without changing the guess count, last guess, or last result.
+3. For a valid guess, calculate the new state
 4. Increment the guess count **once** and store the last guess.
 5. Compare the guess with the secret number and store the result.
 6. If the guess is correct, change the phase to `win`.
@@ -132,7 +131,7 @@ Hints:
 - Use `Number(value)` to convert it: `Number('17')` produces `17`.
 - Check for blank input before conversion: `Number('')` produces `0`.
 - `Number.isInteger(...)` helps reject fractions and non-numeric values.
-- Read a signal with `this.phase()`, replace its value with `.set(...)`, and update from its previous value with `.update(...)`.
+- Read a signal with `this.phase()`, replace its value with `.set(...)`
 
 ### 2. Start a new game
 
