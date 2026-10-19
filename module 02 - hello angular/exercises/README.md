@@ -206,7 +206,6 @@ Use another `@if` to distinguish "no guess yet" from feedback about a previous g
 - Hide the guess controls.
 - Show a Restart button as described in the next step.
 
-Keep dynamic feedback in an `aria-live="polite"` region so assistive technology can announce updates.
 
 ### 3. Add a Restart button
 
