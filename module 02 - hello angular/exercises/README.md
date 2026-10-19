@@ -98,7 +98,6 @@ Math.floor(Math.random() * 100) + 1
 
 `Math.random()` produces a number from `0` (inclusive) to `1` (exclusive). Multiplying by `100` and rounding down with `Math.floor()` gives an integer from `0` to `99`. Adding `1` shifts the range to `1` through `100`. Use this expression to initialize the secret number and generate a new one when restarting.
 
-Do not store values you can easily derive, such as guesses remaining. Calculate them from the maximum and the count. As an optional extension, use a `computed` signal for that value.
 
 **Checkpoint:** Your component should now contain the state properties, but no game actions yet. A new game has zero guesses, no last guess or result, and the `in-progress` phase.
 
