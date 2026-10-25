@@ -1,0 +1,20 @@
+{
+  "name": "fun-with-node",
+  "version": "1.0.0",
+  "description": "having some fun",
+  "keywords": [
+    "fun",
+    "javascript"
+  ],
+  "license": "ISC",
+  "author": "Kobi Hari",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "cls && node main.js && echo \"Main.js has finished executing\"" 
+  },
+  "dependencies": {
+    "@colors/colors": "^1.6.1",
+    "mathjs": "^15.2.0"
+  }
+}

@@ -1,4 +1,4 @@
-# Module 02 - Hello Angular
+# Module 03 - Hello Angular
 
 In this module we compared modern Angular with legacy Angular, created and ran an Angular application, and built a small search interface using a standalone component and writable signals.
 
