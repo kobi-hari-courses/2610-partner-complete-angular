@@ -1,4 +1,6 @@
-export const ALL_QUESTIONS = [
+import type { Question } from '../models/question';
+
+export const ALL_QUESTIONS: Question[] = [
   {
     caption: 'What is the capital of France?',
     answers: ['Lyon', 'Paris', 'Marseille', 'Nice'],
