@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    li {
+      list-style: none;
+      border: 1px solid var(--divider);
+      padding: 0.2rem;
+      border-radius: 0.4rem;
+      user-select: none;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &.chosen {
+        background-color: var(--selected);
+      }
+
+      &:hover {
+        background-color: var(--hover);
+        transform: scale(1.05);
+      }
+    }
+  }
+}

@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { Title } from './components/title/title';
+import { StringSelector } from './components/string-selector/string-selector';
 
 @Component({
   selector: 'app-root',
-  imports: [Title],
+  imports: [Title, StringSelector],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -28,5 +29,9 @@ export class App {
 
   selectSize(size: string) {
     this.selectedSize.set(size);
+  }
+
+  whenClickedManyTimes(howMany: number) {
+    console.log(`Title clicked ${howMany} times`);
   }
 }
