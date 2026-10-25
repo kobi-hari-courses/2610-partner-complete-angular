@@ -2,11 +2,17 @@
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   grid-template-areas:
+    'title title title '
     'colors fonts sizes'
     'text text text';
   gap: 0.5rem;
+
+  .title-area {
+    grid-area: title;
+    padding: 0.3rem;
+  }
 
   .colors-area {
     grid-area: colors;

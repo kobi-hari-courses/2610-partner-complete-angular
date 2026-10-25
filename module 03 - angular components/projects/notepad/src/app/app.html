@@ -1,3 +1,10 @@
+<div class="title-area">
+   <app-title 
+    caption="Welcome To Notepad App"
+    [color]="selectedColor()"
+    />
+</div>
+
 <div class="colors-area">
     <ul>
         @for(item of possibleColors(); track $index) {
