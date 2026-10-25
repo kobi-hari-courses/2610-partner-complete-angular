@@ -1,0 +1,35 @@
+:host {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "colors fonts sizes"
+        "text text text";
+    gap: 0.5rem;
+
+    .colors-area {
+        grid-area: colors;
+        padding: 0.3rem;
+    }
+
+    .fonts-area {
+        grid-area: fonts;
+        padding: 0.3rem;
+    }
+
+    .sizes-area {
+        grid-area: sizes;
+        padding: 0.3rem;
+    }
+
+    .text-area {
+        grid-area: text;
+        display: grid;
+
+        textarea {
+            resize: none;
+        }
+    }
+
+}
