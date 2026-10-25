@@ -1,4 +1,4 @@
-# Module 01 - TypeScript Exercise
+# Module 02 - TypeScript Exercise
 In this exercise, you will practice the basics of TypeScript.
 
 - You will learn how to set up a node.js project with npm.
