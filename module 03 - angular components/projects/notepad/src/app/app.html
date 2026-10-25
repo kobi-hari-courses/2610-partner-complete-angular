@@ -1,15 +1,40 @@
 <div class="colors-area">
-    Colors
+    <ul>
+        @for(item of possibleColors(); track $index) {
+            <li 
+                (click)="selectColor(item)"
+                [class.chosen]="selectedColor() === item"
+            >{{item}}</li>
+        }
+    </ul>
 </div>
 
 <div class="fonts-area">
-    Fonts
+    <ul>
+        @for(item of possibleFonts(); track $index) {
+            <li
+                (click)="selectFont(item)"
+                [class.chosen]="selectedFont() === item"
+                >{{item}}</li>
+        }
+    </ul>
 </div>
 
 <div class="sizes-area">
-    Sizes
+    <ul>
+        @for(item of possibleSizes(); track $index) {
+            <li
+                (click)="selectSize(item)"
+                [class.chosen]="selectedSize() === item"
+            >{{item}}</li>
+        }
+    </ul>
 </div>
 
 <div class="text-area">
-    <textarea></textarea>
+    <textarea
+        [style.color]="selectedColor()"
+        [style.font-family]="selectedFont()"
+        [style.font-size]="selectedSize()"
+    ></textarea>
 </div>

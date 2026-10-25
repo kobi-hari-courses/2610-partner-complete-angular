@@ -4,6 +4,12 @@ html, body {
     height: 100%;
 }
 
+:root {
+    --divider: lightgray;
+    --hover: rgb(229, 227, 227);
+    --selected: rgb(166, 228, 195);
+}
+
 body {
     padding: 1rem;
     display: flex;

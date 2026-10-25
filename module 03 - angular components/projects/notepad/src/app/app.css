@@ -1,35 +1,59 @@
 :host {
-    flex-grow: 1;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'colors fonts sizes'
+    'text text text';
+  gap: 0.5rem;
+
+  .colors-area {
+    grid-area: colors;
+    padding: 0.3rem;
+  }
+
+  .fonts-area {
+    grid-area: fonts;
+    padding: 0.3rem;
+  }
+
+  .sizes-area {
+    grid-area: sizes;
+    padding: 0.3rem;
+  }
+
+  .text-area {
+    grid-area: text;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto 1fr;
-    grid-template-areas: 
-        "colors fonts sizes"
-        "text text text";
-    gap: 0.5rem;
 
-    .colors-area {
-        grid-area: colors;
-        padding: 0.3rem;
+    textarea {
+      resize: none;
     }
+  }
 
-    .fonts-area {
-        grid-area: fonts;
-        padding: 0.3rem;
-    }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
 
-    .sizes-area {
-        grid-area: sizes;
-        padding: 0.3rem;
-    }
+    li {
+        list-style: none;
+        border: 1px solid var(--divider);
+        padding: 0.2rem;
+        border-radius: 0.4rem;
+        user-select: none;
+        cursor: pointer;
+        transition: 0.3s;
 
-    .text-area {
-        grid-area: text;
-        display: grid;
+        &.chosen {
+          background-color: var(--selected);
+        }
 
-        textarea {
-            resize: none;
+        &:hover {
+          background-color: var(--hover);
+          transform: scale(1.05);
         }
     }
-
+  }
 }
