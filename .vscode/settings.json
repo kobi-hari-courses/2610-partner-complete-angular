@@ -1,16 +1,16 @@
 {
     "workbench.colorCustomizations": {
         "activityBar.background": "#003434",
-        "titleBar.activeBackground": "#004949",
-        "titleBar.activeForeground": "#E4FFFF",
+        "titleBar.activeBackground": "#00C8C8",
+        "titleBar.activeForeground": "#001D1D",
         "titleBar.inactiveBackground": "#003434",
-        "titleBar.inactiveForeground": "#E4FFFF",
-        "statusBar.background": "#003434",
-        "statusBar.foreground": "#E4FFFF",
-        "statusBar.debuggingBackground": "#003434",
-        "statusBar.debuggingForeground": "#E4FFFF",
-        "statusBar.noFolderBackground": "#003434",
-        "statusBar.noFolderForeground": "#E4FFFF"
+        "titleBar.inactiveForeground": "#001D1D",
+        "statusBar.background": "#004848",
+        "statusBar.foreground": "#E3FFFF",
+        "statusBar.debuggingBackground": "#004848",
+        "statusBar.debuggingForeground": "#E3FFFF",
+        "statusBar.noFolderBackground": "#004848",
+        "statusBar.noFolderForeground": "#E3FFFF"
     },
     "windowColors.baseColor": "teal"
 }
