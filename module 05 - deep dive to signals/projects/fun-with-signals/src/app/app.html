@@ -1,0 +1,12 @@
+<label>
+    I = 
+</label>
+<input type="number" #iBox (input)="i.set(iBox.valueAsNumber)">
+
+<label>
+    J = 
+</label>
+<input type="checkbox" #jBox (input)="j.set(jBox.checked)"/>
+
+<button (click)="doSomething()">Do Something</button>
+<button (click)="changeManySignals()">Change Many Signals</button>
