@@ -5,7 +5,6 @@
 | Project | Project Description |
 | --- | --- |
 | [fun-with-signals](./projects/fun-with-signals/) | Explores `signal`, `computed`, `effect`, and `linkedSignal`, and practices immutable update patterns on a list of people |
-| [quiz-with-signals](./projects/quiz-with-signals/) | A complete quiz application combining core state, derived state, component inputs and outputs, and CSS tricks |
 
 ## Summary
 
