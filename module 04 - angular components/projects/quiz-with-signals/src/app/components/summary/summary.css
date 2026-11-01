@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .summary {
+    background-color: var(--secondary-color-light);
+    padding: 1rem;
+    color: var(--secondary-color-dark);
+    align-items: center;
+    border: 1px solid var(--secondary-color);
+    border-radius: 1.5rem;
+  }
+}

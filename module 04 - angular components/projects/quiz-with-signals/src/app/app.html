@@ -1,6 +1,13 @@
 @if(isQuizDone()) {
-    <app-summary/>
+    <app-summary [score]="score()"/>
 } @else {
-    <app-progress-bar/>
-    <app-question-presenter/>    
+    <app-progress-bar
+        [total]="totalQuestionsCount()"
+        [value]="answeredQuestionsCount()"
+    />
+    <app-question-presenter [question]="currentQuestion()"
+        (userAnswered)="answerCurrentQuestion($event)"
+    />    
 }
+
+<button (click)="reset()">Restart Quiz</button>

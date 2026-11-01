@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './progress-bar.css',
   templateUrl: './progress-bar.html',
 })
-export class ProgressBar {}
+export class ProgressBar {
+  readonly total = input.required<number>();
+  readonly value = input.required<number>();
+
+  readonly ratio = computed(() => this.value() / this.total() * 100);
+}

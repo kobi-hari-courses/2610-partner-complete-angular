@@ -4,14 +4,22 @@ html, body {
     height: 100%;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     flex-direction: column;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --main-color: #3498db;
+    --main-color-dark: #15547e;
+    --main-color-light: #acd3ee;
+    --secondary-color: #2ecc71;
+    --secondary-color-dark: #147f41;
+    --secondary-color-light: #a4ebc2;
 }

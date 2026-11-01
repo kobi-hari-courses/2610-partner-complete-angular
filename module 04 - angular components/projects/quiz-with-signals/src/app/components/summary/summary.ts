@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './summary.css',
   templateUrl: './summary.html',
 })
-export class Summary {}
+export class Summary {
+  readonly score = input.required<number>();
+
+}

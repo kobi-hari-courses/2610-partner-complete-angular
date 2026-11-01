@@ -1,0 +1,16 @@
+:host {
+    border: 1px solid var(--main-color);
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    padding: 0.2rem;
+
+    .progress {
+        min-width: 5px;
+        background: linear-gradient(to right,
+            var(--main-color-light), 
+            var(--main-color) 
+            );
+        transition: 0.3s;
+    }
+}

@@ -1,1 +1,8 @@
-<p>question-presenter works!</p>
+@let q = question();
+
+<h2>{{q.caption}}</h2>
+<ul>
+    @for(ans of q.answers; track $index) {
+        <li (click)="userAnswered.emit($index)">{{ans}}</li>
+    }
+</ul>

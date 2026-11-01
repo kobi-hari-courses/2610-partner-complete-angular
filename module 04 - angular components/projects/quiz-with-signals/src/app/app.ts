@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { Question } from './models/question';
 import { ALL_QUESTIONS } from './data/questions';
 import { calculateCorrectAnswersCount, calculateScore } from './quiz.helpers';
@@ -43,5 +43,19 @@ export class App {
 
   answerCurrentQuestion(answer: number) {
     this.allAnswers.update(val => [...val, answer]);
+  }
+
+  constructor() {
+    const json = localStorage.getItem('quiz-answers');
+    if (json) {
+      const value = JSON.parse(json) as number[];
+      this.allAnswers.set(value);
+    }
+
+    effect(() => {
+        const answers = this.allAnswers();
+        const json = JSON.stringify(answers);
+        localStorage.setItem('quiz-answers', json);
+    });
   }
 }

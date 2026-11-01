@@ -1,0 +1,34 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--secondary-color-dark);
+        text-decoration: underline var(--secondary-color);
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        li {
+            list-style: none;
+            padding: 0.5rem;
+            background-color: var(--secondary-color-light);
+            border: 1px solid var(--secondary-color);
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--secondary-color);
+                color: white;
+            }
+        }
+
+    }
+}
