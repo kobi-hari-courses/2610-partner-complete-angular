@@ -12,3 +12,7 @@
 
 ### Module 4: Angular Components
 * [Summary](./module%2004%20-%20angular%20components/README.md)
+
+### Module 5: Deep Dive to Signals
+* [Summary](./module%2005%20-%20deep%20dive%20to%20signals/README.md)
+* [Exercise](./module%2005%20-%20deep%20dive%20to%20signals/exercises/README.md)
