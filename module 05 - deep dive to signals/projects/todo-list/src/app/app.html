@@ -1,0 +1,40 @@
+<h1>Todo:</h1>
+
+<div class="tools">
+  <input #textBox type="text" placeholder="Add a new todo"
+    (keydown.enter)="addNewItem(textBox.value); textBox.value = ''; textBox.focus()"
+  >
+  <button (click)="addNewItem(textBox.value); textBox.value = ''; textBox.focus()">Add</button>
+</div>
+
+<ul>
+  @for(item of todos(); track item.caption) {
+    <li [class.completed]="item.isCompleted">
+      <span class="check" (click)="toggleItem(item.caption)">
+        @if(item.isCompleted) {
+          ✓
+        }
+      </span>
+      <span class="caption">{{item.caption}}</span>
+      <span class="delete" (click)="removeItem(item.caption)">
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M3 6h18" />
+          <path d="M8 6V4h8v2" />
+          <path d="m19 6-1 14H6L5 6" />
+          <path d="M10 11v5M14 11v5" />
+        </svg>
+      </span>
+    </li>
+  }
+</ul>
