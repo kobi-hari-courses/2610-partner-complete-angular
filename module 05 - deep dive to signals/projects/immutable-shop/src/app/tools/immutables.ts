@@ -1,5 +1,7 @@
 import { Draft, produce } from "immer";
 
+export type Updater<T> = (state: T) => T;
+
 export function mutate<T>(obj: T, mutator: (draft: Draft<T>) => void): T {
     return produce(obj, mutator);
 }
