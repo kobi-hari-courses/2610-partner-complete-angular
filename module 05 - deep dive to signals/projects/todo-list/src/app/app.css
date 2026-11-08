@@ -1,12 +1,29 @@
 :host {
     display: flex;
     flex-direction: column;
+    gap: var(--space-lg);
+
+    max-width: 480px;
+    margin: var(--space-xl) auto;
+    padding: var(--space-xl);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+
+    h1 {
+        font-size: var(--font-size-lg);
+    }
 
     .tools {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 8px;
+
+        input {
+            flex: 1;
+        }
     }
 
     ul {
@@ -21,9 +38,34 @@
             align-items: center;
             gap: 8px;
 
+            padding: var(--space-md);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background-color: var(--color-surface);
+            transition:
+                border-color var(--transition-fast),
+                background-color var(--transition-fast);
+
+            &:hover {
+                border-color: var(--color-border-strong);
+
+                .delete {
+                    opacity: 1;
+                }
+            }
+
             &.completed {
+                background-color: var(--color-bg);
+
                 .caption {
                     text-decoration: line-through;
+                    color: var(--color-text-muted);
+                }
+
+                .check {
+                    border-color: var(--color-success);
+                    background-color: var(--color-success-soft);
+                    color: var(--color-success);
                 }
             }
 
@@ -35,9 +77,47 @@
                 height: 20px;
                 border: 1px solid #ccc;
                 cursor: pointer;
+
+                flex-shrink: 0;
+                border-color: var(--color-border-strong);
+                border-radius: var(--radius-full);
+                font-size: var(--font-size-sm);
+                user-select: none;
+                transition:
+                    border-color var(--transition-fast),
+                    background-color var(--transition-fast);
+
+                &:hover {
+                    border-color: var(--color-success);
+                }
             }
 
+            .caption {
+                flex: 1;
+                transition: color var(--transition-fast);
+            }
 
+            .delete {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                padding: var(--space-xs);
+                border-radius: var(--radius-sm);
+                color: var(--color-text-muted);
+                cursor: pointer;
+                opacity: 0;
+                transition:
+                    opacity var(--transition-fast),
+                    color var(--transition-fast),
+                    background-color var(--transition-fast);
+
+                &:hover {
+                    color: var(--color-danger);
+                    background-color: var(--color-danger-soft);
+                }
+            }
         }
     }
 }
+
