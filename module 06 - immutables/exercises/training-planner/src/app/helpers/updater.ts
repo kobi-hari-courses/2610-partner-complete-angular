@@ -1,0 +1,1 @@
+export type Updater<T> = (item: T) => T;

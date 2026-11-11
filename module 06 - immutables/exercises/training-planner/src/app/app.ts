@@ -2,31 +2,41 @@ import { Component, signal, computed } from '@angular/core';
 import { InputButton } from './components/input-button/input-button';
 import type { TrainingPlan, TryItem, Workout } from './models/training.model';
 import { JsonPipe } from '@angular/common';
+import {
+  addExercise,
+  addWorkout,
+  removeTryItem,
+  removeWorkout,
+  toggleWorkout,
+  updatePlanName,
+  updateTryItemName,
+  updateWeeklyGoal,
+  updateWorkoutName,
+} from './helpers/trainig-updaters';
 
 @Component({
   selector: 'app-root',
   imports: [JsonPipe, InputButton],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   readonly plan = signal<TrainingPlan>({
     name: 'My Training Plan',
     weeklyGoal: 3,
     workouts: [],
-    tryItems: []
+    tryItems: [],
   });
 
   readonly planName = computed(() => this.plan().name);
   readonly weeklyGoal = computed(() => this.plan().weeklyGoal);
 
   updatePlanName(newName: string) {
-    this.plan.update(plan => ({ ...plan, name: newName }));
+    this.plan.update(updatePlanName(newName));
   }
 
   updateWeeklyGoal(newGoal: string) {
-    const parsedGoal = Number(newGoal);
-    this.plan.update(plan => ({ ...plan, weeklyGoal: parsedGoal }));
+    this.plan.update(updateWeeklyGoal(Number(newGoal)));
   }
 
   addWorkout(newWorkout: string) {
@@ -34,75 +44,33 @@ export class App {
       throw new Error('Workout name cannot be empty');
     }
 
-    const workout: Workout = {
-      id: crypto.randomUUID(),
-      name: newWorkout, 
-      completed: false, 
-      exercises: []
-    };
-    this.plan.update(plan => ({ 
-      ...plan, 
-      workouts: [...plan.workouts, workout] 
-    }));
-
+    this.plan.update(addWorkout(newWorkout));
   }
-
 
   addExercise(newExercise: string) {
     if (!newExercise.trim()) {
       throw new Error('Exercise name cannot be empty');
     }
-    const tryItem: TryItem = {
-      id: crypto.randomUUID(),
-      name: newExercise,       
-    }
-
-
-    this.plan.update(plan => ({
-      ...plan,
-      tryItems: [...plan.tryItems, tryItem]
-    }));
+    this.plan.update(addExercise(newExercise));
   }
 
   updateWorkoutName(workoutId: string, newName: string) {
-    this.plan.update(plan => ({
-      ...plan,
-      workouts: plan.workouts.map(workout =>
-        workout.id === workoutId ? { ...workout, name: newName } : workout
-      )
-    }));
+    this.plan.update(updateWorkoutName(workoutId, newName));
   }
 
   toggleWorkoutCompletion(workoutId: string) {
-    this.plan.update(plan => ({
-      ...plan,
-      workouts: plan.workouts.map(workout =>
-        workout.id === workoutId ? { ...workout, completed: !workout.completed } : workout
-      )
-    }));
+    this.plan.update(toggleWorkout(workoutId));
   }
 
   removeWorkout(workoutId: string) {
-    this.plan.update(plan => ({
-      ...plan,
-      workouts: plan.workouts.filter(workout => workout.id !== workoutId)
-    }));
+    this.plan.update(removeWorkout(workoutId));
   }
 
   updateTryItemName(tryItemId: string, newName: string) {
-    this.plan.update(plan => ({
-      ...plan,
-      tryItems: plan.tryItems.map(tryItem =>
-        tryItem.id === tryItemId ? { ...tryItem, name: newName } : tryItem
-      )
-    }));
+    this.plan.update(updateTryItemName(tryItemId, newName));
   }
 
   removeTryItem(tryItemId: string) {
-    this.plan.update(plan => ({
-      ...plan,
-      tryItems: plan.tryItems.filter(tryItem => tryItem.id !== tryItemId)
-    }));
+    this.plan.update(removeTryItem(tryItemId));
   }
-
 }
