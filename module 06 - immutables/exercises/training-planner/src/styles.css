@@ -18,11 +18,16 @@ body {
 }
 
 :root {
-    --primary-color: #0078d4;
-    --primary-color-hover: #005a9e;
-    --divider-color: #ccc;
+  --primary-color: #0078d4;
+  --primary-color-hover: #005a9e;
+  --danger-color: #d9534f;
+  --danger-color-hover: #c9302c;
+  --primary-surface-color: #f0f0f0;
+  --primary-divider-color: #ccc;
+  --secondary-color: #666;
+  --divider-color: #ccc;
+  --secondary-color-hover: #555;
 }
-
 
 button {
   padding: 0.5rem 1rem;
@@ -36,6 +41,19 @@ button {
   &:hover {
     background-color: var(--primary-color-hover);
   }
+
+  &.secondary {
+    background-color: var(--secondary-color);
+    &:hover {
+      background-color: var(--secondary-color-hover);
+    }
+  }
+  &.danger {
+    background-color: var(--danger-color);
+    &:hover {
+      background-color: var(--danger-color-hover);
+    }
+  }
 }
 
 pre {
@@ -48,13 +66,13 @@ pre {
 }
 
 input {
-    padding: 0.5rem;
-    border: 1px solid var(--divider-color);
-    border-radius: 4px;
-    outline: none;  
-    transition: border-color 0.3s;
-    
-    &:focus {
-        border-color: var(--primary-color);
-    }
+  padding: 0.5rem;
+  border: 1px solid var(--divider-color);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: var(--primary-color);
+  }
 }

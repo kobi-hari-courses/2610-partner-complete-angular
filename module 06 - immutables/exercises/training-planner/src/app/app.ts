@@ -1,10 +1,11 @@
 import { Component, signal, computed } from '@angular/core';
+import { InputButton } from './components/input-button/input-button';
 import type { TrainingPlan, TryItem, Workout } from './models/training.model';
 import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [JsonPipe],
+  imports: [JsonPipe, InputButton],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -23,8 +24,9 @@ export class App {
     this.plan.update(plan => ({ ...plan, name: newName }));
   }
 
-  updateWeeklyGoal(newGoal: number) {
-    this.plan.update(plan => ({ ...plan, weeklyGoal: newGoal }));
+  updateWeeklyGoal(newGoal: string) {
+    const parsedGoal = Number(newGoal);
+    this.plan.update(plan => ({ ...plan, weeklyGoal: parsedGoal }));
   }
 
   addWorkout(newWorkout: string) {
@@ -61,5 +63,18 @@ export class App {
       tryItems: [...plan.tryItems, tryItem]
     }));
   }
+
+  updateWorkoutName(workoutId: string, newName: string) {
+  }
+
+  toggleWorkoutCompletion(workoutId: string) {
+  }
+
+  removeWorkout(workoutId: string) {
+  }
+
+  updateTryItemName(tryItemId: string, newName: string) {}
+
+  removeTryItem(tryItemId: string) {}
 
 }

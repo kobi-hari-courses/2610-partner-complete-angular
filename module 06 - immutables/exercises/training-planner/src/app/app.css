@@ -16,53 +16,27 @@
     gap: 1rem;
     border-bottom: 1px solid var(--divider-color);
     padding-bottom: 1rem;
+  }
 
-    .field {
+  .workouts, .try-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-bottom: 1px solid var(--divider-color);
+    padding-bottom: 1rem;
+
+    .card {
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      background-color: var(--primary-surface-color);
+      border: 1px solid var(--primary-divider-color);
+      border-radius: 4px;
+      padding: 0.5rem;
 
-      label {
+      .header {
         display: flex;
-        flex-direction: row;
         gap: 0.5rem;
-        align-items: center;
-
-        input {
-          align-self: stretch;
-          padding: 0.5rem;
-        }
       }
+
     }
-  }
-
-  .new-workout {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  .workouts {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border-bottom: 1px solid var(--divider-color);
-    padding-bottom: 1rem;
-  }
-
-  .new-exercise {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  .exercises-to-try {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border-bottom: 1px solid var(--divider-color);
-    padding-bottom: 1rem;
   }
 }

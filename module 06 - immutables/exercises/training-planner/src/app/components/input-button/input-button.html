@@ -1,0 +1,6 @@
+<label>{{ label() }}</label>
+<input type="text" #inputBox
+    [value]="value()" 
+    (keydown.enter)="commit.emit(inputBox.value)"
+    />
+<button (click)="commit.emit(inputBox.value)">{{ caption() }}</button>

@@ -1,38 +1,66 @@
 <h1>Sports Training Planner</h1>
 <div class="plan">
-  <div class="field plan-name">
-    <label
-      >Plan name:
-      <input type="text" [value]="planName()" #planNameInput />
-      <button (click)="updatePlanName(planNameInput.value)">Save Name</button>
-    </label>
-  </div>
-  <div class="field weekly-goal">
-    <label
-      >Weekly Goal:
-      <input type="number" [value]="weeklyGoal()" #weeklyGoalInput />
-      <button (click)="updateWeeklyGoal(weeklyGoalInput.valueAsNumber)">Save Goal</button>
-    </label>
-  </div>
+  <app-input-button
+    [label]="'Plan Name'"
+    [value]="planName()"
+    caption="Save Name"
+    (commit)="updatePlanName($event)"
+  />
+  <app-input-button
+    [label]="'Weekly Goal'"
+    [value]="weeklyGoal().toString()"
+    caption="Save Goal"
+    (commit)="updateWeeklyGoal($event)"
+  />
 </div>
 
 <h2>Workouts</h2>
-<div class="new-workout">
-    <input type="text" #newWorkoutInput />
-    <button (click)="addWorkout(newWorkoutInput.value)">Add Workout</button>
-</div>
+<app-input-button [value]="''" caption="Add Workout" (commit)="addWorkout($event)" />
 <div class="workouts">
-
-
+  @for (workout of plan().workouts; track workout.id) {
+    <div class="card">
+      <div class="header">
+        <app-input-button
+          [value]="workout.name"
+          caption="Save Workout"
+          (commit)="updateWorkoutName(workout.id, $event)"
+        />
+        <button class="secondary" 
+          (click)="toggleWorkoutCompletion(workout.id)">
+          @if(workout.completed)
+            {Completed}
+          @else
+            {Not Completed}
+        </button>
+        <button class="danger" 
+          (click)="removeWorkout(workout.id)">
+          Remove
+        </button>
+      </div>
+    </div>
+  }
 </div>
 
 <h2>Exercises to Try</h2>
-<div class="new-exercise">
-    <input type="text" #newExerciseInput />
-    <button (click)="addExercise(newExerciseInput.value)">Add Exercise</button>
-</div>
-<div class="exercises-to-try">
-    
+<app-input-button [value]="''" caption="Add Exercise" (commit)="addExercise($event)" />
+
+<div class="try-items">
+  @for (tryItem of plan().tryItems; track tryItem.id) {
+    <div class="card">
+      <div class="header">
+        <app-input-button
+          [value]="tryItem.name"
+          caption="Save Exercise"
+          (commit)="updateTryItemName(tryItem.id, $event)"
+        />
+        <button class="danger" 
+          (click)="removeTryItem(tryItem.id)">
+          Remove
+        </button>
+      </div>
+    </div>
+  }
+
 </div>
 
 <pre>
