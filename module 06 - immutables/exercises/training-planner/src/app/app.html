@@ -16,12 +16,20 @@
 
 <div class="computed">
   <p>
-    <span class="label">Completed Workouts:</span> 
+    <span class="label">Completed Workouts:</span>
     <span class="value">{{ completedWorkouts() }}</span>
   </p>
   <p>
-    <span class="label">Incomplete Workouts:</span> 
+    <span class="label">Incomplete Workouts:</span>
     <span class="value">{{ incompleteWorkouts() }}</span>
+  </p>
+  <p>
+    <span class="label">Completed Exercises:</span>
+    <span class="value">{{ completedExercises() }}</span>
+  </p>
+  <p>
+    <span class="label">Incomplete Exercises:</span>
+    <span class="value">{{ incompleteExercises() }}</span>
   </p>
 </div>
 
@@ -44,6 +52,32 @@
           }
         </button>
         <button class="danger" (click)="removeWorkout(workout.id)">Remove</button>
+      </div>
+      <h4>Exercises</h4>
+      <app-input-button
+        caption="Add Exercise"
+        (commit)="addExerciseToWorkout(workout.id, $event)"
+      />
+      <div class="exercises">
+        @for (exercise of workout.exercises; track exercise.id) {
+          <div class="exercise">
+            <app-input-button
+              [value]="exercise.name"
+              caption="Save Exercise"
+              (commit)="updateExerciseName(workout.id, exercise.id, $event)"
+            />
+            <button class="secondary" (click)="toggleExerciseCompletion(workout.id, exercise.id)">
+              @if (exercise.completed) {
+                Completed
+              } @else {
+                Not Completed
+              }
+            </button>
+            <button class="danger" (click)="deleteExerciseFromWorkout(workout.id, exercise.id)">
+              Remove
+            </button>
+          </div>
+        }
       </div>
     </div>
   }

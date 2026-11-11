@@ -46,6 +46,25 @@
 
     .card {
       display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      h4 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+      .exercises {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .exercise {
+          display: flex;
+          gap: 0.5rem;
+        }
+      }
       background-color: var(--primary-surface-color);
       border: 1px solid var(--primary-divider-color);
       border-radius: 4px;
