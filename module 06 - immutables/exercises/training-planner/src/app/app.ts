@@ -65,16 +65,44 @@ export class App {
   }
 
   updateWorkoutName(workoutId: string, newName: string) {
+    this.plan.update(plan => ({
+      ...plan,
+      workouts: plan.workouts.map(workout =>
+        workout.id === workoutId ? { ...workout, name: newName } : workout
+      )
+    }));
   }
 
   toggleWorkoutCompletion(workoutId: string) {
+    this.plan.update(plan => ({
+      ...plan,
+      workouts: plan.workouts.map(workout =>
+        workout.id === workoutId ? { ...workout, completed: !workout.completed } : workout
+      )
+    }));
   }
 
   removeWorkout(workoutId: string) {
+    this.plan.update(plan => ({
+      ...plan,
+      workouts: plan.workouts.filter(workout => workout.id !== workoutId)
+    }));
   }
 
-  updateTryItemName(tryItemId: string, newName: string) {}
+  updateTryItemName(tryItemId: string, newName: string) {
+    this.plan.update(plan => ({
+      ...plan,
+      tryItems: plan.tryItems.map(tryItem =>
+        tryItem.id === tryItemId ? { ...tryItem, name: newName } : tryItem
+      )
+    }));
+  }
 
-  removeTryItem(tryItemId: string) {}
+  removeTryItem(tryItemId: string) {
+    this.plan.update(plan => ({
+      ...plan,
+      tryItems: plan.tryItems.filter(tryItem => tryItem.id !== tryItemId)
+    }));
+  }
 
 }
