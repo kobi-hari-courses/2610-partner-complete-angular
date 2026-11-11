@@ -1,0 +1,40 @@
+<h1>Sports Training Planner</h1>
+<div class="plan">
+  <div class="field plan-name">
+    <label
+      >Plan name:
+      <input type="text" [value]="planName()" #planNameInput />
+      <button (click)="updatePlanName(planNameInput.value)">Save Name</button>
+    </label>
+  </div>
+  <div class="field weekly-goal">
+    <label
+      >Weekly Goal:
+      <input type="number" [value]="weeklyGoal()" #weeklyGoalInput />
+      <button (click)="updateWeeklyGoal(weeklyGoalInput.valueAsNumber)">Save Goal</button>
+    </label>
+  </div>
+</div>
+
+<h2>Workouts</h2>
+<div class="new-workout">
+    <input type="text" #newWorkoutInput />
+    <button (click)="addWorkout(newWorkoutInput.value)">Add Workout</button>
+</div>
+<div class="workouts">
+
+
+</div>
+
+<h2>Exercises to Try</h2>
+<div class="new-exercise">
+    <input type="text" #newExerciseInput />
+    <button (click)="addExercise(newExerciseInput.value)">Add Exercise</button>
+</div>
+<div class="exercises-to-try">
+    
+</div>
+
+<pre>
+    {{ plan() | json }}
+</pre>

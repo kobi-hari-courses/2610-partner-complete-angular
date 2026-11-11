@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+:root {
+    --primary-color: #0078d4;
+    --primary-color-hover: #005a9e;
+    --divider-color: #ccc;
+}
+
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+  }
+}
+
+pre {
+  background-color: #615c5c;
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: monospace;
+}
+
+input {
+    padding: 0.5rem;
+    border: 1px solid var(--divider-color);
+    border-radius: 4px;
+    outline: none;  
+    transition: border-color 0.3s;
+    
+    &:focus {
+        border-color: var(--primary-color);
+    }
+}
