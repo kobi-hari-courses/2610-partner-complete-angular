@@ -16,3 +16,6 @@
 ### Module 5: Deep Dive to Signals
 * [Summary](./module%2005%20-%20deep%20dive%20to%20signals/README.md)
 * [Exercise](./module%2005%20-%20deep%20dive%20to%20signals/exercises/README.md)
+
+### Module 6: Immutables
+* [Summary](./module%2006%20-%20immutables/README.md)
