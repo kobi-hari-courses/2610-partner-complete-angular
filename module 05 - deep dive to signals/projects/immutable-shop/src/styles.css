@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --color-page: #f5f7f4;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eef3ef;
+  --color-text: #1d2b24;
+  --color-text-muted: #68766e;
+  --color-border: #dce5de;
+  --color-primary: #176b4d;
+  --color-primary-hover: #10583e;
+  --color-primary-soft: #e4f2e9;
+  --color-focus: #78b994;
+
+  --radius-card: 1.125rem;
+  --radius-control: 0.75rem;
+  --shadow-card: 0 0.25rem 1.25rem rgb(28 54 40 / 6%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 20rem;
+  min-height: 100%;
+  background: var(--color-page);
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-text);
+  background:
+    radial-gradient(ellipse at 10% 0%, rgb(222 238 226 / 72%), transparent 32rem),
+    var(--color-page);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  color: var(--color-text);
+  background: #c8e5d1;
+}

@@ -1,13 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { ALL_PRODUCTS } from './data/products';
 import { EMPTY_CART, Product } from './models/shop.model';
 import { incrementProduct, resetCart, updateCustomerName, decrementProduct, changeItemIndex } from './updaters/shop.updaters';
-import { Producer } from 'immer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
