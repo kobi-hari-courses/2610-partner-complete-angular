@@ -19,3 +19,4 @@
 
 ### Module 6: Immutables
 * [Summary](./module%2006%20-%20immutables/README.md)
+* [Exercise](./module%2006%20-%20immutables/exercises/README.md)
