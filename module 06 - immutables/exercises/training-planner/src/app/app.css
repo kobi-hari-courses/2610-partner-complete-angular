@@ -18,6 +18,25 @@
     padding-bottom: 1rem;
   }
 
+  .computed {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    margin-bottom: 1rem;
+
+    p {
+      margin: 0;
+
+      .label {
+        margin-right: 0.5rem;
+      }
+      .value {
+        font-weight: normal;
+        color: var(--primary-color);
+      }
+    }
+  }
+
   .workouts, .try-items {
     display: flex;
     flex-direction: column;

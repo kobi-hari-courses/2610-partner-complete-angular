@@ -14,6 +14,17 @@
   />
 </div>
 
+<div class="computed">
+  <p>
+    <span class="label">Completed Workouts:</span> 
+    <span class="value">{{ completedWorkouts() }}</span>
+  </p>
+  <p>
+    <span class="label">Incomplete Workouts:</span> 
+    <span class="value">{{ incompleteWorkouts() }}</span>
+  </p>
+</div>
+
 <h2>Workouts</h2>
 <app-input-button [value]="''" caption="Add Workout" (commit)="addWorkout($event)" />
 <div class="workouts">
@@ -25,17 +36,14 @@
           caption="Save Workout"
           (commit)="updateWorkoutName(workout.id, $event)"
         />
-        <button class="secondary" 
-          (click)="toggleWorkoutCompletion(workout.id)">
-          @if(workout.completed)
-            {Completed}
-          @else
-            {Not Completed}
+        <button class="secondary" (click)="toggleWorkoutCompletion(workout.id)">
+          @if (workout.completed) {
+            Completed
+          } @else {
+            Not Completed
+          }
         </button>
-        <button class="danger" 
-          (click)="removeWorkout(workout.id)">
-          Remove
-        </button>
+        <button class="danger" (click)="removeWorkout(workout.id)">Remove</button>
       </div>
     </div>
   }
@@ -53,14 +61,10 @@
           caption="Save Exercise"
           (commit)="updateTryItemName(tryItem.id, $event)"
         />
-        <button class="danger" 
-          (click)="removeTryItem(tryItem.id)">
-          Remove
-        </button>
+        <button class="danger" (click)="removeTryItem(tryItem.id)">Remove</button>
       </div>
     </div>
   }
-
 </div>
 
 <pre>

@@ -1,4 +1,5 @@
 import { Component, signal, computed } from '@angular/core';
+import { countCompletedWorkouts, countIncompleteWorkouts } from './helpers/training-computed';
 import { InputButton } from './components/input-button/input-button';
 import type { TrainingPlan, TryItem, Workout } from './models/training.model';
 import { JsonPipe } from '@angular/common';
@@ -30,6 +31,12 @@ export class App {
 
   readonly planName = computed(() => this.plan().name);
   readonly weeklyGoal = computed(() => this.plan().weeklyGoal);
+
+  readonly completedWorkouts = computed(() => 
+    countCompletedWorkouts(this.plan().workouts));
+
+  readonly incompleteWorkouts = computed(() => 
+    countIncompleteWorkouts(this.plan().workouts));
 
   updatePlanName(newName: string) {
     this.plan.update(updatePlanName(newName));
