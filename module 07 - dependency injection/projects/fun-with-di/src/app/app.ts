@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Calc } from './components/calc/calc';
+import { Group } from './components/group/group';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Calc, Group],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('fun-with-di');
 }
