@@ -1,2 +1,9 @@
-<app-group/>
-<app-group/>
+<button (click)="toggleTimer()">Toggle Timer</button>
+
+@if (showTimer()) {
+  <app-timer-presenter />
+}
+
+<app-group />
+<app-group />
+<app-calc />
